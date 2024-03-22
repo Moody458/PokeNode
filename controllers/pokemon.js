@@ -28,7 +28,7 @@ const createPokemon = async (req, res) => {
 //Get All
 const getAllPokemon = async (req, res) => {
   try {
-    const pokemons = await Pokemon.find();
+    const pokemons = await Pokemon.find().sort({ _id: 1 });
     pokemons.forEach((pokemon) => {
       console.log(pokemon.name.english);
     });
