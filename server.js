@@ -13,7 +13,9 @@ require("colors"); // import colors for terminal
 const connectDB = require("./dbinit"); // MongoDB connect import
 connectDB(); // MongoDB connect exec
 
-const pokemon = require("./routes/pokemonRoute"); // router import
+const pokemon = require("./routes/pokemonRoute"); // pokemon router import
+
+const leaderboard = require("./routes/leaderboardRoute"); // leaderboard router import
 
 const port = process.env.PORT || 8080; // Defining Port
 
@@ -28,6 +30,8 @@ app.use(express.urlencoded({ extended: true })); // setting up middleware to par
 
 //---ROUTES-----------------------------------------------------------------------------------
 app.use("/pokemon", pokemon); // router implementation
+
+app.use("/leaderboard", leaderboard);
 
 // basepath (landing)
 app.get("/", (req, res) => {
